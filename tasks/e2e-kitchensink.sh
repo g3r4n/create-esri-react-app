@@ -72,7 +72,7 @@ then
   # AppVeyor uses an old version of yarn.
   # Once updated to 0.24.3 or above, the workaround can be removed
   # and replaced with `yarnpkg cache clean`
-  # Issues: 
+  # Issues:
   #    https://github.com/yarnpkg/yarn/issues/2591
   #    https://github.com/appveyor/ci/issues/1576
   #    https://github.com/facebookincubator/create-react-app/pull/2400
@@ -87,12 +87,16 @@ fi
 
 if hash npm 2>/dev/null
 then
-  npm cache clean
+  # npm 5 is too buggy right now
+  if [ $(npm -v | head -c 1) -eq 5 ]; then
+    npm i -g npm@^4.x
+  fi;
+  npm cache clean || npm cache verify
 fi
 
-# Prevent lerna bootstrap, we only want top-level dependencies
+# Prevent bootstrap, we only want top-level dependencies
 cp package.json package.json.bak
-grep -v "lerna bootstrap" package.json > temp && mv temp package.json
+grep -v "postinstall" package.json > temp && mv temp package.json
 npm install
 mv package.json.bak package.json
 
@@ -104,7 +108,7 @@ then
 fi
 
 # We removed the postinstall, so do it manually
-./node_modules/.bin/lerna bootstrap --concurrency=1
+node bootstrap.js
 
 cd packages/react-error-overlay/
 npm run build:prod
@@ -161,6 +165,9 @@ cd "$temp_app_path/test-kitchensink"
 
 # Link to our preset
 npm link "$root_path"/packages/babel-preset-react-app
+# Link to error overlay package because now it's a dependency
+# of react-dev-utils and not react-scripts
+npm link "$root_path"/packages/react-error-overlay
 
 # Link to test module
 npm link "$temp_module_path/node_modules/test-integrity"
@@ -216,6 +223,8 @@ E2E_FILE=./build/index.html \
 
 # Unlink our preset
 npm unlink "$root_path"/packages/babel-preset-react-app
+# Unlink error overlay
+npm unlink "$root_path"/packages/react-error-overlay
 
 # Eject...
 echo yes | npm run eject
@@ -223,6 +232,7 @@ echo yes | npm run eject
 # ...but still link to the local packages
 npm link "$root_path"/packages/babel-preset-react-app
 npm link "$root_path"/packages/eslint-config-react-app
+npm link "$root_path"/packages/react-error-overlay
 npm link "$root_path"/packages/react-dev-utils
 npm link "$root_path"/packages/react-scripts
 
