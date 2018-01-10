@@ -88,6 +88,19 @@ set -x
 cd ..
 root_path=$PWD
 
+# Make sure we don't introduce accidental references to PATENTS.
+EXPECTED='packages/react-error-overlay/fixtures/bundle.mjs
+packages/react-error-overlay/fixtures/bundle.mjs.map
+packages/react-error-overlay/fixtures/bundle_u.mjs
+packages/react-error-overlay/fixtures/bundle_u.mjs.map
+tasks/e2e-simple.sh'
+ACTUAL=$(git grep -l PATENTS)
+if [ "$EXPECTED" != "$ACTUAL" ]; then
+  echo "PATENTS crept into some new files?"
+  diff -u <(echo "$EXPECTED") <(echo "$ACTUAL") || true
+  exit 1
+fi
+
 # Clear cache to avoid issues with incorrect packages being used
 if hash yarnpkg 2>/dev/null
 then
@@ -109,10 +122,6 @@ fi
 
 if hash npm 2>/dev/null
 then
-  # npm 5 is too buggy right now
-  if [ $(npm -v | head -c 1) -eq 5 ]; then
-    npm i -g npm@^4.x
-  fi;
   npm cache clean || npm cache verify
 fi
 
