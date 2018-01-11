@@ -65,18 +65,8 @@ then
   npm cache clean || npm cache verify
 fi
 
-# Prevent bootstrap, we only want top-level dependencies
-cp package.json package.json.bak
-grep -v "postinstall" package.json > temp && mv temp package.json
+# Bootstrap monorepo
 yarn
-mv package.json.bak package.json
-
-# We removed the postinstall, so do it manually
-node bootstrap.js
-
-cd packages/react-error-overlay/
-yarn build:prod
-cd ../..
 
 # ******************************************************************************
 # First, publish the monorepo.
@@ -165,7 +155,7 @@ E2E_FILE=./build/index.html \
 # ******************************************************************************
 
 # Eject...
-echo yes | yarn eject
+echo yes | npm run eject
 
 # Link to test module
 npm link "$temp_module_path/node_modules/test-integrity"
