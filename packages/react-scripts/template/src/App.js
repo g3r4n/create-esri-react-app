@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import EsriMap from 'esri/Map';
+import MapView from './MapView';
 import './App.css';
+
+var map = new EsriMap({
+  basemap: 'streets',
+});
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React + ESRI</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    return <MapView map={map} />;
   }
 }
 
