@@ -20,6 +20,8 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.6/"></script>
   </head>
   <body>
     <noscript>
@@ -36,5 +38,8 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      require(["static/js/bundle.js"], function (bundle) {});
+    </script>
   </body>
 </html>
