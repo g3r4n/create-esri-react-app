@@ -1,6 +1,5 @@
-# Create React App [![Build Status](https://travis-ci.org/facebookincubator/create-react-app.svg?branch=master)](https://travis-ci.org/facebookincubator/create-react-app)
-
-Create React apps with no build configuration.
+# Create React App
+Create React apps + ESRI JS API with no build configuration.
 
 * [Creating an App](#creating-an-app) – How to create a new app.
 * [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
@@ -11,8 +10,8 @@ If something doesn’t work, please [file an issue](https://github.com/facebooki
 ## Quick Overview
 
 ```sh
-npx create-react-app my-app
-cd my-app
+npx create-react-app esri-app --scripts-version=esri-react-scripts
+cd esri-app
 npm start
 ```
 
@@ -39,7 +38,7 @@ Just create a project, and you’re good to go.
 To create a new app, run a single command:
 
 ```sh
-npx create-react-app my-app
+npx create-react-app esri-app --scripts-version=esri-react-scripts
 ```
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
@@ -71,7 +70,7 @@ No configuration or complicated folder structures, just the files you need to bu
 Once the installation is done, you can open your project folder:
 
 ```sh
-cd my-app
+cd esri-app
 ```
 
 Inside the newly created project, you can run some built-in commands:
@@ -177,48 +176,3 @@ Your environment will have everything you need to build a modern single-page Rea
 Check out [this guide](https://github.com/nitishdayal/cra_closer_look) for an overview of how these tools fit together.
 
 The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject) and customize it, but then you will need to maintain this configuration.
-
-## Popular Alternatives
-
-Create React App is a great fit for:
-
-* **Learning React** in a comfortable and feature-rich development environment.
-* **Starting new single-page React applications.**
-* **Creating examples** with React for your libraries and components.
-
-Here’s a few common cases where you might want to try something else:
-
-* If you want to **try React** without hundreds of transitive build tool dependencies, consider [using a single HTML file or an online sandbox instead](https://reactjs.org/docs/try-react.html).
-
-* If you need to **integrate React code with a server-side template framework** like Rails or Django, or if you’re **not building a single-page app**, consider using [nwb](https://github.com/insin/nwb) or [Neutrino](https://neutrino.js.org/) which are more flexible.
-
-* If you need to **publish a React component**, [nwb](https://github.com/insin/nwb) can [also do this](https://github.com/insin/nwb#react-components-and-libraries), as well as [Neutrino's react-components preset](https://neutrino.js.org/packages/react-components/).
-
-* If you want to do **server rendering** with React and Node.js, check out [Next.js](https://github.com/zeit/next.js/) or [Razzle](https://github.com/jaredpalmer/razzle). Create React App is agnostic of the backend, and just produces static HTML/JS/CSS bundles.
-
-* If your website is **mostly static** (for example, a portfolio or a blog), consider using [Gatsby](https://www.gatsbyjs.org/) instead. Unlike Create React App, it pre-renders the website into HTML at the build time.
-
-* If you want to use **TypeScript**, consider using [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript).
-
-* Finally, if you need **more customization**, check out [Neutrino](https://neutrino.js.org/) and its [React preset](https://neutrino.js.org/packages/react/).
-
-All of the above tools can work with little to no configuration.
-
-If you prefer configuring the build yourself, [follow this guide](https://reactjs.org/docs/add-react-to-an-existing-app.html).
-
-## Contributing
-
-We'd love to have your helping hand on `create-react-app`! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on what we're looking for and how to get started.
-
-## React Native
-
-Looking for something similar, but for React Native?<br>
-Check out [Create React Native App](https://github.com/react-community/create-react-native-app/).
-
-## Acknowledgements
-
-We are grateful to the authors of existing related projects for their ideas and collaboration:
-
-* [@eanplatter](https://github.com/eanplatter)
-* [@insin](https://github.com/insin)
-* [@mxstbr](https://github.com/mxstbr)
