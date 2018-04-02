@@ -1,6 +1,6 @@
 {
   "name": "esri-react-scripts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Configuration and scripts for Create React App.",
   "repository": "g3r4n/create-esri-react-app",
   "license": "MIT",
@@ -20,13 +20,13 @@
   "bin": {
     "react-scripts": "./bin/react-scripts.js"
   },
-    "keywords": [
-      "esri",
-      "react",
-      "esri-js",
-      "esri-js-api",
-      "create-react-app"
-    ],
+  "keywords": [
+    "esri",
+    "react",
+    "esri-js",
+    "esri-js-api",
+    "create-react-app"
+  ],
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
