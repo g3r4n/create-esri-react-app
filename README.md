@@ -7,6 +7,9 @@ This project is a custom react script working with [Create React App](https://gi
 
 Create React App works on macOS, Windows, and Linux.<br>
 If something doesn’t work, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new).
+## Demo
+
+[http://esri-react.surge.sh](http://esri-react.surge.sh)
 
 ## Quick Overview
 
