@@ -12,12 +12,12 @@ export default class MapView extends Component {
         components: [],
       },
     });
-    const onCenterChange = center => {
-      if (typeof this.props.onCenterChange === 'function') {
-        this.props.onCenterChange(center.toJSON());
-      }
-    };
-    view.watch('center', onCenterChange.bind(this));
+    view.watch('center', this._onCenterChange.bind(this));
+  }
+  _onCenterChange(center) {
+    if (typeof this.props.onCenterChange === 'function') {
+      this.props.onCenterChange(center.toJSON());
+    }
   }
   render() {
     return (
