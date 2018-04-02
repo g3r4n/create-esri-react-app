@@ -1,10 +1,10 @@
 # esri-react-scripts
 Create React apps + ESRI JS API with no build configuration.
-This package includes scripts and configuration used by [Create React App](https://github.com/facebookincubator/create-react-app).<br>
+This package includes scripts and configuration used by [Create React App](https://github.com/g3r4n/create-esri-react-app).<br>
 Please refer to its documentation:
 
-* [Getting Started](https://github.com/facebookincubator/create-react-app/blob/master/README.md#getting-started) – How to create a new app.
-* [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
+* [Getting Started](https://github.com/g3r4n/create-esri-react-app/blob/master/README.md#getting-started) – How to create a new app.
+* [User Guide](https://github.com/g3r4n/create-esri-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
 ## Demo
 
@@ -24,5 +24,5 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
 <p align='center'>
-<img src='https://cdn.rawgit.com/facebookincubator/create-react-app/6ab67e6b96457720d843aa3c557ff951a41bafc2/screencast.svg' width='600' alt=''>
+<img src='https://cdn.rawgit.com/g3r4n/create-esri-react-app/6ab67e6b96457720d843aa3c557ff951a41bafc2/screencast.svg' width='600' alt=''>
 </p>
