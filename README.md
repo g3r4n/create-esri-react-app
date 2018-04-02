@@ -1,5 +1,6 @@
-# Create React App
+# Create Esri React App
 Create React apps + ESRI JS API with no build configuration.
+This project is a custom react script working with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 * [Creating an App](#creating-an-app) – How to create a new app.
 * [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
