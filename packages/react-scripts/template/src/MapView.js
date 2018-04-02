@@ -1,6 +1,5 @@
 import EsriMapView from 'esri/views/MapView';
-import { Component } from 'react';
-import React from 'react';
+import React, { Component } from 'react';
 
 export default class MapView extends Component {
   componentDidMount() {
@@ -13,6 +12,12 @@ export default class MapView extends Component {
         components: [],
       },
     });
+    const onCenterChange = center => {
+      if (typeof this.props.onCenterChange === 'function') {
+        this.props.onCenterChange(center.toJSON());
+      }
+    };
+    view.watch('center', onCenterChange.bind(this));
   }
   render() {
     return (
