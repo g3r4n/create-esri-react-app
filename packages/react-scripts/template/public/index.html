@@ -21,8 +21,8 @@
     -->
     <title>React ESRI App</title>
     <!--
-    Do not change the following script tag.
-      The build step will place the bundled scripts into the require function.
+      Do not change the following script tag.
+      The build step will place the bundled css here.
     -->
     <%=htmlWebpackPlugin.files.css.map(cssFile => ('<link rel="stylesheet" href="'+cssFile+'">')).join()%>
     <script src="https://js.arcgis.com/4.7/"></script>
