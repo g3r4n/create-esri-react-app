@@ -26,7 +26,7 @@ class App extends Component {
             backgroundColor: 'white',
           }}
         >
-          center = x:{this.state.center.x} ,y:{this.state.center.y}
+          center :<br /> x={this.state.center.x} <br />y={this.state.center.y}
         </div>
         <MapView
           map={map}
