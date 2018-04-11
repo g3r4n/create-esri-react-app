@@ -4,7 +4,7 @@ import MapView from './MapView';
 import './App.css';
 
 var map = new EsriMap({
-  basemap: 'streets',
+  basemap: 'streets-vector',
 });
 
 class App extends Component {

@@ -6,7 +6,7 @@ export default class MapView extends Component {
     var view = new EsriMapView({
       container: this.mapViewDiv,
       map: this.props.map,
-      zoom: 5,
+      zoom: 4,
       center: [134.866944, -24.994167],
       ui: {
         components: [],
