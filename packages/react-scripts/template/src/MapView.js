@@ -22,6 +22,7 @@ export default class MapView extends Component {
   render() {
     return (
       <div
+        className="map-container"
         style={{ height: '100%', width: '100%' }}
         ref={mapViewDiv => {
           this.mapViewDiv = mapViewDiv;

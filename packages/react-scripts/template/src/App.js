@@ -18,6 +18,12 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <MapView
+          map={map}
+          onCenterChange={center => {
+            this.setState({ center });
+          }}
+        />
         <div
           style={{
             position: 'absolute',
@@ -28,12 +34,6 @@ class App extends Component {
         >
           center :<br /> x={this.state.center.x} <br />y={this.state.center.y}
         </div>
-        <MapView
-          map={map}
-          onCenterChange={center => {
-            this.setState({ center });
-          }}
-        />
       </Fragment>
     );
   }
