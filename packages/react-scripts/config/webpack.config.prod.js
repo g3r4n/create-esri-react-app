@@ -66,7 +66,6 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
-    libraryTarget: 'amd',
     // The build folder.
     path: paths.appBuild,
     // Generated JS file names (with nested folders).
@@ -270,7 +269,7 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       template: paths.appHtml,
       minify: {
         removeComments: true,
@@ -357,26 +356,6 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  ],
-  externals: [
-    // Exclude Dojo, Esri and WAB modules from build process.
-    function checkExternal(context, request, callback) {
-      var externals = [
-        'dojo',
-        'dojox',
-        'dijit',
-        'dgrid',
-        'dstore',
-        'esri',
-        'jimu',
-      ];
-
-      var isExternal = externals.reduce(function(prevValue, nextValue) {
-        return prevValue || new RegExp('^' + nextValue).test(request);
-      }, false);
-
-      isExternal ? callback(null, 'amd ' + request) : callback();
-    },
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

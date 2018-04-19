@@ -63,7 +63,6 @@ module.exports = {
   output: {
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
-    libraryTarget: 'amd',
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
@@ -244,7 +243,7 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       template: paths.appHtml,
     }),
     // Add module names to factory functions so they appear in browser profiler.
@@ -269,27 +268,6 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  ],
-
-  externals: [
-    // Exclude Dojo, Esri and WAB modules from build process.
-    function checkExternal(context, request, callback) {
-      var externals = [
-        'dojo',
-        'dojox',
-        'dijit',
-        'dgrid',
-        'dstore',
-        'esri',
-        'jimu',
-      ];
-
-      var isExternal = externals.reduce(function(prevValue, nextValue) {
-        return prevValue || new RegExp('^' + nextValue).test(request);
-      }, false);
-
-      isExternal ? callback(null, 'amd ' + request) : callback();
-    },
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
