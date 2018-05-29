@@ -19,7 +19,6 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-const ArcGISPlugin = require('@arcgis/webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -170,9 +169,6 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
-              plugins: [
-                require.resolve('babel-plugin-transform-es2015-modules-amd'),
-              ],
               // @remove-on-eject-end
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -240,8 +236,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // ARCGIS plugin for the arcgis js api 4.7
-    new ArcGISPlugin(),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -283,8 +277,6 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty',
-    process: false,
-    global: false,
   },
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
@@ -292,12 +284,4 @@ module.exports = {
   performance: {
     hints: false,
   },
-  externals: [
-    (context, request, callback) => {
-      if (/pe-wasm$/.test(request)) {
-        return callback(null, 'amd ' + request);
-      }
-      callback();
-    },
-  ],
 };
